@@ -82,14 +82,24 @@ export default function About() {
             className="lg:col-span-5"
           >
             <div className="glass-card p-8 rounded-3xl border border-purple-500/20 relative shadow-2xl shadow-purple-950/30 overflow-hidden group">
-              {/* Card Header */}
+              {/* Card Header with optional photo / avatar */}
               <div className="flex items-center justify-between pb-6 mb-6 border-b border-white/10">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-cyan-400 p-[2px]">
-                    <div className="w-full h-full bg-[#0b0c10] rounded-[14px] flex items-center justify-center font-heading text-lg font-bold text-white">
-                      P
+                  {personalInfo.profileImage ? (
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-cyan-400 p-[2px] shadow-lg shadow-purple-950/40 overflow-hidden">
+                      <img
+                        src={personalInfo.profileImage}
+                        alt="Priyanka S."
+                        className="w-full h-full object-cover rounded-[14px] group-hover:scale-110 transition-transform duration-500"
+                      />
                     </div>
-                  </div>
+                  ) : (
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-cyan-400 p-[2px]">
+                      <div className="w-full h-full bg-[#0b0c10] rounded-[14px] flex items-center justify-center font-heading text-lg font-bold text-white">
+                        P
+                      </div>
+                    </div>
+                  )}
                   <div>
                     <h4 className="font-heading font-bold text-lg text-white">PRIYANKA S.</h4>
                     <p className="text-xs text-purple-400 font-mono">Front-End • Data Science</p>
