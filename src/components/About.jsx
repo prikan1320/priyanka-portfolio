@@ -81,40 +81,33 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5"
           >
-            <div className="glass-card p-8 rounded-3xl border border-purple-500/20 relative shadow-2xl shadow-purple-950/30 overflow-hidden group">
-              {/* Card Header with optional photo / avatar */}
-              <div className="flex items-center justify-between pb-6 mb-6 border-b border-white/10">
-                <div className="flex items-center gap-3">
-                  {personalInfo.profileImage ? (
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-cyan-400 p-[2px] shadow-lg shadow-purple-950/40 overflow-hidden">
-                      <img
-                        src={personalInfo.profileImage}
-                        alt="Priyanka S."
-                        className="w-full h-full object-cover rounded-[14px] group-hover:scale-110 transition-transform duration-500"
-                      />
+            <div className="glass-card p-6 sm:p-8 rounded-3xl border border-purple-500/20 relative shadow-2xl shadow-purple-950/30 overflow-hidden group">
+              
+              {/* Featured Portrait Photo Card */}
+              {personalInfo.profileImage && (
+                <div className="relative w-full h-64 sm:h-72 mb-6 rounded-2xl overflow-hidden border border-purple-500/30 shadow-xl shadow-purple-950/40">
+                  <img
+                    src={personalInfo.profileImage}
+                    alt="Priyanka S. - Professional Headshot"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c10] via-transparent to-transparent opacity-80" />
+                  
+                  {/* Photo Overlay Badge */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <div>
+                      <div className="text-sm font-bold font-heading text-white">PRIYANKA S.</div>
+                      <div className="text-[10px] font-mono text-purple-300">Front-End Developer & Data Science</div>
                     </div>
-                  ) : (
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-cyan-400 p-[2px]">
-                      <div className="w-full h-full bg-[#0b0c10] rounded-[14px] flex items-center justify-center font-heading text-lg font-bold text-white">
-                        P
-                      </div>
+                    <div className="px-2.5 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-[10px] font-mono backdrop-blur-md">
+                      M.Sc. Data Science
                     </div>
-                  )}
-                  <div>
-                    <h4 className="font-heading font-bold text-lg text-white">PRIYANKA S.</h4>
-                    <p className="text-xs text-purple-400 font-mono">Front-End • Data Science</p>
                   </div>
                 </div>
-
-                {/* Status pulse */}
-                <div className="px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-[10px] font-mono flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                  <span>Active Student</span>
-                </div>
-              </div>
+              )}
 
               {/* Core Skill Identity List */}
-              <div className="space-y-4 mb-8">
+              <div className="space-y-3 mb-6">
                 <div className="flex items-center justify-between p-3 rounded-xl bg-slate-900/80 border border-white/5">
                   <span className="text-xs font-medium text-slate-300 flex items-center gap-2">
                     <Code className="w-4 h-4 text-purple-400" />

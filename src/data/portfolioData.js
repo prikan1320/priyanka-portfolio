@@ -7,7 +7,7 @@ export const personalInfo = {
   email: "priyankasenthilkumar1420@gmail.com",
   linkedin: "https://www.linkedin.com/in/priyanka-s-52291636b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   github: "https://github.com/prikan1320",
-  profileImage: null, // Set to "/profile.jpg" or import image path when adding personal photo
+  profileImage: "/priyanka-profile.jpg", // Professional headshot image
   resumeUrl: "#", // Placeholder as instructed
   statusText: "Currently Learning • Building • Exploring",
 };
