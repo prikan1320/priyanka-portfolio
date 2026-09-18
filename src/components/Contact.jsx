@@ -200,15 +200,15 @@ export default function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="p-8 rounded-2xl bg-purple-950/40 border border-purple-500/40 text-center space-y-4"
                 >
-                  <div className="w-12 h-12 rounded-full bg-purple-500/20 text-purple-300 flex items-center justify-center mx-auto">
-                    <CheckCircle className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center mx-auto border border-emerald-500/30">
+                    <CheckCircle className="w-6 h-6 text-emerald-400" />
                   </div>
-                  <h4 className="text-lg font-bold font-heading text-white">
-                    Direct Email Opened!
+                  <h4 className="text-xl font-bold font-heading text-white">
+                    Message Sent Successfully!
                   </h4>
                   <p className="text-xs text-slate-300 leading-relaxed max-w-md mx-auto">
-                    Your message has been formatted and sent directly to Priyanka's Gmail inbox at{' '}
-                    <strong className="text-purple-300 font-mono">{personalInfo.email}</strong>.
+                    Thank you for reaching out! Your message has been delivered directly to Priyanka's Gmail inbox at{' '}
+                    <strong className="text-purple-300 font-mono">{personalInfo.email}</strong> via Web3Forms.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
