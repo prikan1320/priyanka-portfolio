@@ -36,7 +36,11 @@ export default function Contact() {
     } else {
       setErrors({});
       setSubmitted(true);
-      // Reset form after short delay
+      // Trigger mailto link directly to user's inbox
+      const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
+      const body = encodeURIComponent(`Hi Priyanka,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+      window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
+      
       setTimeout(() => {
         setFormData({ name: '', email: '', message: '' });
       }, 500);
@@ -161,11 +165,11 @@ export default function Contact() {
                     <CheckCircle className="w-6 h-6" />
                   </div>
                   <h4 className="text-lg font-bold font-heading text-white">
-                    Message Prepared!
+                    Direct Email Opened!
                   </h4>
                   <p className="text-xs text-slate-300 leading-relaxed max-w-md mx-auto">
-                    Thank you for writing! Your message format has been validated. You can also send an email directly to{' '}
-                    <strong className="text-purple-300">{personalInfo.email}</strong>.
+                    Your message has been formatted and sent directly to Priyanka's Gmail inbox at{' '}
+                    <strong className="text-purple-300 font-mono">{personalInfo.email}</strong>.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
