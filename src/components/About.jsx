@@ -83,23 +83,23 @@ export default function About() {
           >
             <div className="glass-card p-6 sm:p-8 rounded-3xl border border-purple-500/20 relative shadow-2xl shadow-purple-950/30 overflow-hidden group">
               
-              {/* Featured Portrait Photo Card */}
+              {/* Featured Portrait Photo Card - Full View */}
               {personalInfo.profileImage && (
-                <div className="relative w-full h-64 sm:h-72 mb-6 rounded-2xl overflow-hidden border border-purple-500/30 shadow-xl shadow-purple-950/40">
+                <div className="relative w-full h-[380px] sm:h-[420px] mb-6 rounded-2xl overflow-hidden border border-purple-500/30 shadow-xl shadow-purple-950/40 bg-[#0d0f18]/90 flex items-center justify-center p-2">
                   <img
                     src={personalInfo.profileImage}
                     alt="Priyanka S. - Professional Headshot"
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-contain object-center rounded-xl group-hover:scale-[1.02] transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c10] via-transparent to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c10] via-transparent to-transparent opacity-50 pointer-events-none" />
                   
                   {/* Photo Overlay Badge */}
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                    <div>
-                      <div className="text-sm font-bold font-heading text-white">PRIYANKA S.</div>
-                      <div className="text-[10px] font-mono text-purple-300">Front-End Developer & Data Science</div>
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                    <div className="bg-[#0b0c10]/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10">
+                      <div className="text-xs font-bold font-heading text-white">PRIYANKA S.</div>
+                      <div className="text-[10px] font-mono text-purple-300">Front-End & Data Science</div>
                     </div>
-                    <div className="px-2.5 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-[10px] font-mono backdrop-blur-md">
+                    <div className="px-2.5 py-1.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-[10px] font-mono backdrop-blur-md font-semibold">
                       M.Sc. Data Science
                     </div>
                   </div>
