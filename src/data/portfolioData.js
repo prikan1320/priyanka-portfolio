@@ -8,6 +8,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/priyanka-s-52291636b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   github: "https://github.com/prikan1320",
   profileImage: "/priyanka-profile.jpg", // Professional headshot image
+  web3FormsKey: "YOUR_WEB3FORMS_ACCESS_KEY", // Paste Web3Forms Access Key here when received
   resumeUrl: "#", // Placeholder as instructed
   statusText: "Currently Learning • Building • Exploring",
 };

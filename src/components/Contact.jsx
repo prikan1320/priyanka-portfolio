@@ -28,23 +28,62 @@ export default function Contact() {
     return errs;
   };
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
       setErrors({});
-      setSubmitted(true);
-      // Trigger mailto link directly to user's inbox
-      const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
-      const body = encodeURIComponent(`Hi Priyanka,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-      window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
-      
-      setTimeout(() => {
-        setFormData({ name: '', email: '', message: '' });
-      }, 500);
+      setIsSubmitting(true);
+
+      try {
+        if (personalInfo.web3FormsKey && personalInfo.web3FormsKey !== "YOUR_WEB3FORMS_ACCESS_KEY") {
+          const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json"
+            },
+            body: JSON.stringify({
+              access_key: personalInfo.web3FormsKey,
+              name: formData.name,
+              email: formData.email,
+              message: formData.message,
+              subject: `Portfolio Message from ${formData.name}`
+            })
+          });
+
+          const result = await response.json();
+          if (result.success) {
+            setSubmitted(true);
+            setFormData({ name: '', email: '', message: '' });
+          } else {
+            // Fallback to mailto
+            triggerMailto();
+          }
+        } else {
+          // Default instant mailto dispatch
+          triggerMailto();
+        }
+      } catch (err) {
+        triggerMailto();
+      } finally {
+        setIsSubmitting(false);
+      }
     }
+  };
+
+  const triggerMailto = () => {
+    setSubmitted(true);
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
+    const body = encodeURIComponent(`Hi Priyanka,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
+    setTimeout(() => {
+      setFormData({ name: '', email: '', message: '' });
+    }, 500);
   };
 
   return (
